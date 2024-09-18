@@ -27,7 +27,7 @@ module.exports.run = async function ({ api, event, args }) {
 				return api.sendMessage('Please reply to an image.', event.threadID);
 			}
 		}
-		const response = (await axios.get(`${geminiApi}/gemini?prompt=${prompt}&url=${url}`)).data;
+		const response = (await axios.get(`${geminiApi}/gemini?prompt=${prompt}`)).data;
 		return api.sendMessage(response.gemini, event.threadID);
 	} catch (error) {
 		console.error(error);
