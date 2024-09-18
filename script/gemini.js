@@ -18,7 +18,7 @@ module.exports.run = async function ({ api, event, args }) {
       url = encodeURIComponent(event.messageReply.attachments[0].url);
       api.sendTypingIndicator(event.threadID);
       try {
-        const response = (await axios.get(`https://deku-rest-api.replit.app/gemini?prompt=describe%20this%20photo&url=${url}&uid=${uid}`)).data;
+        const response = (await axios.get(`https://deku-rest-api.gleeze.com/gemini?prompt=${prompt}&url=${url}`)).data;
         return api.sendMessage(response.gemini, event.threadID);
       } catch (error) {
         console.error(error);
