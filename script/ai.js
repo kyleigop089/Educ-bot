@@ -1,76 +1,49 @@
 const axios = require('axios');
 
 module.exports.config = {
-  name: 'ai',
-  version: '1.0.0',
-  hasPermission: 0,
-  usePrefix: false,
-  aliases: ['gpt', 'openai'],
-  description: "An AI command powered by GPT-4",
-  usages: "ai [prompt]",
-  credits: 'Developer',
-  cooldowns: 3,
-  dependencies: {
-    "axios": ""
-  }
+    name: "ai",
+    version: "1.0.0",
+    hasPermission: 0,
+    credits: "api by ericson",//api by ericson
+    description: "Gpt architecture",
+    usePrefix: false,
+    commandCategory: "GPT4",
+    cooldowns: 5,
 };
+
 module.exports.run = async function ({ api, event, args }) {
-    const prompt = args.join(" ");
-
-    if (!prompt) {
-        return api.sendMessage('This cmd only works in photo.', event.threadID, event.messageID);
-    }
-
-    if (event.type !== "message_reply" || !event.messageReply.attachments[0] || event.messageReply.attachments[0].type !== "photo") {
-        return api.sendMessage('Please reply to a photo with this command.', event.threadID, event.messageID);
-    }
-
-    const url = encodeURIComponent(event.messageReply.attachments[0].url);
-    api.sendTypingIndicator(event.threadID);
-
     try {
-        await api.sendMessage('𝙱𝙾𝙶𝙰𝚁𝚃 𝙰𝙸 𝙱𝙾𝚃 𝚁𝙴𝙲𝙾𝙶𝙽𝙸𝚉𝙸𝙽𝙶 𝙸𝙼𝙰𝙶𝙴, 𝙿𝙻𝙴𝙰𝚂𝙴 𝚆𝙰𝙸𝚃...', event.threadID);
+        const { messageID, messageReply } = event;
+        let prompt = args.join(' ');
 
-        const response = await axios.get(`https://deku-rest-api.gleeze.com/gemini?prompt=${encodeURIComponent(prompt)}&url=${url}`);
-        const description = response.data.gemini;
+        if (messageReply) {
+            const repliedMessage = messageReply.body;
+            prompt = `${repliedMessage} ${prompt}`;
+        }
 
-        return api.sendMessage(`•| 𝙱𝙾𝙶𝙰𝚁𝚃 𝙰𝙸 𝙱𝙾𝚃 |•\n\n${description}\n\n•| 𝙾𝚆𝙽𝙴𝚁 : 𝙷𝙾𝙼𝙴𝚁 𝚁𝙴𝙱𝙰𝚃𝙸𝚂 |•`, event.threadID, event.messageID);
+        if (!prompt) {
+            return api.sendMessage('🎀 ʜᴇʟʟᴏ, ɪ ᴀᴍ ɢᴘᴛ-4 ᴛʀᴀɪɴᴇᴅ ʙʏ ᴇʀɪᴄsᴏɴ終.\n\nʜᴏᴡ ᴍᴀʏ ɪ ᴀssɪsᴛ ʏᴏᴜ ᴛᴏᴅᴀʏ?', event.threadID, messageID);
+        }
+        api.sendMessage('', event.threadID);
+
+        // Delay
+        await new Promise(resolve => setTimeout(resolve, 2000)); // Adjust the delay time as needed
+
+        const gpt4_api = `https://gpt4withcustommodel.onrender.com/gpt?query=${encodeURIComponent(prompt)}&model=gpt-4-32k-0314`;
+
+        const response = await axios.get(gpt4_api);
+
+        if (response.data && response.data.response) {
+            const generatedText = response.data.response;
+
+            // Ai Answer Here
+            api.sendMessage(`${generatedText}`, event.threadID, messageID);
+        } else {
+            console.error('API response did not contain expected data:', response.data);
+            api.sendMessage(`❌ An error occurred while generating the text response. Please try again later. Response data: ${JSON.stringify(response.data)}`, event.threadID, messageID);
+        }
     } catch (error) {
-        console.error(error);
-        return api.sendMessage('❌ | An error occurred while processing your request.', event.threadID, event.messageID);
+        console.error('Error:', error);
+        api.sendMessage(`❌ An error occurred while generating the text response. Please try again later. Error details: ${error.message}`, event.threadID, event.messageID);
     }
-};
-module.exports.run = async function({ api, event, args }) {
-  const input = args.join(' ');
-
-  if (!input) {
-    api.sendMessage(`Please provide a question or statement after 'ai'. For example: 'ai What is the capital of France?'`, event.threadID, event.messageID);
-    return;
-  }
-  
-  if (input === "clear") {
-    try {
-      await axios.post('https://satomoigpt.onrender.com/clear', { id: event.senderID });
-      return api.sendMessage("Chat history has been cleared.", event.threadID, event.messageID);
-    } catch {
-      return api.sendMessage('An error occurred while clearing the chat history.', event.threadID, event.messageID);
-    }
-  }
-
-  try {
-    const url = event.type === "message_reply" && event.messageReply.attachments[0]?.type === "photo"
-      ? { link: event.messageReply.attachments[0].url }
-      : {};
-
-    const { data } = await axios.post('https://satomoigpt.onrender.com/chat', {
-      prompt: input,
-      customId: event.senderID,
-      ...url
-    });
-
-    api.sendMessage(`•| 𝙱𝙾𝙶𝙰𝚁𝚃 𝙰𝙸 𝙱𝙾𝚃 |•\n\n${data.message}\n\n•| 𝙾𝚆𝙽𝙴𝚁 : 𝙷𝙾𝙼𝙴𝚁 𝚁𝙴𝙱𝙰𝚃𝙸𝚂 |•\n\n--> 𝚄𝚂𝙴 👉🏻"𝚊𝚒2"👈🏻 𝙲𝙾𝙼𝙼𝙰𝙽𝙳 𝙵𝙾𝚁 𝙸𝙼𝙰𝙶𝙴/𝙿𝙷𝙾𝚃𝙾 𝚁𝙴𝙲𝙾𝙶𝙽𝙸𝚃𝙸𝙾𝙽`, event.threadID, event.messageID);
-    
-  } catch {
-    api.sendMessage('An error occurred while processing your request.', event.threadID, event.messageID);
-  }
 };
