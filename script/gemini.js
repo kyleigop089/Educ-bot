@@ -1,7 +1,7 @@
 module.exports.config = {
   name: "gemini",
   role: 0,
-  credits: "Deku", //Modiffied by churchill
+  credits: "Deku", //Modiffied by bogart gwapo
   description: "can describe picture",
   hasPrefix: false,
   version: "5.6.7",
