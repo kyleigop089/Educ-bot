@@ -1,33 +1,35 @@
+const axios = require('axios');
+
 module.exports.config = {
-  name: "gemini",
-  role: 0,
-  credits: "Deku", //Modiffied by bogart gwapo
-  description: "can describe picture",
-  hasPrefix: false,
-  version: "5.6.7",
-  aliases: ["bard"],
-  usage: "gemini [picture-url]"
+    name: "gemini",
+    role: 0,
+    credits: "GeoDevz69",
+    description: "Interact with Gemini",
+    hasPrefix: false,
+    version: "1.0.0",
+    aliases: ["gemini"],
+    usage: "gemini [reply to photo]"
 };
 
 module.exports.run = async function ({ api, event, args }) {
-  const axios = require("axios");
-  let uid = event.senderID,
-    url;
-  if (event.type == "message_reply") {
-    if (event.messageReply.attachments[0]?.type == "photo") {
-      url = encodeURIComponent(event.messageReply.attachments[0].url);
-      api.sendTypingIndicator(event.threadID);
-      try {
-        const response = (await axios.get(`https://deku-rest-api.gleeze.com/gemini?prompt=${prompt}&url=${url}`)).data;
-        return api.sendMessage(response.gemini, event.threadID);
-      } catch (error) {
-        console.error(error);
-        return api.sendMessage('❌ | An error occurred. You can try typing your query again or resending it. There might be an issue with the server that\'s causing the problem, and it might resolve on retrying.', event.threadID);
-      }
-    } else {
-      return api.sendMessage('Please reply to an image.', event.threadID);
+    const prompt = args.join(" ");
+
+    if (!prompt) {
+        return api.sendMessage('This cmd only works in photo.', event.threadID, event.messageID);
     }
-  } else {
-    return api.sendMessage(`Please enter a picture URL or reply to an image with "gemini answer this".`, event.threadID);
-  }
+
+    const url = encodeURIComponent(event.messageReply.attachments[0].url);
+    api.sendTypingIndicator(event.threadID);
+
+    try {
+        await api.sendMessage('💬 Responding...', event.threadID);
+
+        const response = await axios.get(`https://deku-rest-api.gleeze.com/gemini?prompt=${encodeURIComponent(prompt)}&url=${url}`);
+        const description = response.data.gemini;
+
+        return api.sendMessage(`${description}\n\nUse 👉ai👈 to answer only on text questions.`, event.threadID, event.messageID);
+    } catch (error) {
+        console.error(error);
+        return api.sendMessage('❌ | An error occurred while processing your request.', event.threadID, event.messageID);
+    }
 };
