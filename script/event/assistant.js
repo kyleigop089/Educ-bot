@@ -18,7 +18,7 @@ module.exports.handleEvent = async function ({ api, event }) {
         ? { link: event.messageReply.attachments[0].url }
         : {};
 
-      const { data } = await axios.post('https://free-ai-models.vercel.app/v1/chat/completions', {
+      const { data } = await axios.post('https://orc-six.vercel.app/gpt3?ask=', {
         prompt: `${encodeURIComponent(input)}`,
         customId: event.senderID,
         ...url
