@@ -28,7 +28,7 @@ module.exports.run = async function ({ api, event, args }) {
         // Delay
         await new Promise(resolve => setTimeout(resolve, 1000)); // Adjust the delay time as needed
 
-        const gpt4_api = `https://nash-rest-api-production.up.railway.app/gpt-3.5_turbo?prompt=${encodeURIComponent(prompt)}`;
+        const gpt4_api = `https://jonellccprojectapis10.adaptable.app/api/chatgpt?input=${encodeURIComponent(prompt)}`;
 
         const response = await axios.get(gpt4_api);
 
