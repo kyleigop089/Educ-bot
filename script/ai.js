@@ -32,8 +32,8 @@ module.exports.run = async function ({ api, event, args }) {
 
         const response = await axios.get(gpt4_api);
 
-        if (response.data && response.data.reply) {
-            const generatedText = response.data.reply;
+        if (response.data && response.data.result) {
+            const generatedText = response.data.result;
 
             // Ai Answer Here
             api.sendMessage(`•| 𝙱𝙾𝙶𝙰𝚁𝚃 𝙰𝙸 𝙱𝙾𝚃 |• ━━━━━━━━━━━━━━━━\n${generatedText}\n━━━━━━━━━━━━━━━━\n•| 𝙾𝚆𝙽𝙴𝚁 : 𝙷𝙾𝙼𝙴𝚁 𝚁𝙴𝙱𝙰𝚃𝙸𝚂 |•`, event.threadID, messageID);
