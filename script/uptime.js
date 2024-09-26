@@ -42,10 +42,10 @@ module.exports.run = async ({ api, event }) => {
         architecture: chilli.arch()
     };
 
-    const botName = "𝗚𝗖𝗛𝗔𝗧 𝗕𝗢𝗧";
-    const instag = "geotechph";
-    const ghub = "geothe69";
-    const fb = "GeoDevz69";
+    const botName = "█▓▒▒░░░BOGART AI BOT░░░▒▒▓█";
+    const instag = "bogartpogi321";
+    const ghub = "Puyit321";
+    const fb = "@Bogart magalpok";
 
     const avatarId = Math.floor(Math.random() * 800) + 1;
 
@@ -58,7 +58,7 @@ module.exports.run = async ({ api, event }) => {
         pogi.writeFileSync(imagePath, response.data);
 
         const timeStart = Date.now();
-        const returnResult = `✧✧🎀 𝗚𝗖𝗛𝗔𝗧 𝗕𝗢𝗧 🎀✧✧\n━━━━━━━━━━━━━━━━━━\nBOT has been working for ${hours} hour(s) ${mins} minute(s) ${seconds} second(s).\n\n❖ Cpu usage: ${usage.cpu.toFixed(1)}%\n❖ RAM usage: ${byte2mb(usage.memory)}\n❖ Cores: ${chilli.cpus().length}\n❖ Ping: ${Date.now() - timeStart}ms\n❖ Operating System Platform: ${osInfo.platform}\n❖ System CPU Architecture: ${osInfo.architecture}\n━━━━━━━━━━━━━━━━━━\n💕 ғʀᴏᴍ: ᴀᴅᴍɪɴ ɢᴇᴏʀᴀʏ 💕`;
+        const returnResult = `█▓▒▒░░░BOGART AI BOT░░░▒▒▓█\n━━━━━━━━━━━━━━━━━━\nBOT has been working for ${hours} hour(s) ${mins} minute(s) ${seconds} second(s).\n\n❖ Cpu usage: ${usage.cpu.toFixed(1)}%\n❖ RAM usage: ${byte2mb(usage.memory)}\n❖ Cores: ${chilli.cpus().length}\n❖ Ping: ${Date.now() - timeStart}ms\n❖ Operating System Platform: ${osInfo.platform}\n❖ System CPU Architecture: ${osInfo.architecture}\n━━━━━━━━━━━━━━━━━━\n💕 ғʀᴏᴍ: ᴀᴅᴍɪɴ ɢᴇᴏʀᴀʏ 💕`;
 
         api.sendMessage({
             body: returnResult,
