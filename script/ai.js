@@ -31,8 +31,6 @@ module.exports.run = async function({ api, event, args }) {
       return api.sendMessage('An error occurred while clearing the chat history.', event.threadID, event.messageID);
     }
   }
-
-  api.sendMessage(`🔍 "${input}"`, event.threadID, event.messageID);
   
   try {
     const url = event.type === "message_reply" && event.messageReply.attachments[0]?.type === "photo"
@@ -45,7 +43,7 @@ module.exports.run = async function({ api, event, args }) {
       ...url
     });
 
-    api.sendMessage(`•| 𝙱𝙾𝙶𝙰𝚁𝚃 𝙰𝙸 𝙱𝙾𝚃 |•\n\n${data.message}`, event.threadID, event.messageID);
+    api.sendMessage(`•| 𝙱𝙾𝙶𝙰𝚁𝚃 𝙰𝙸 𝙱𝙾𝚃 |•\n\n${data.message}•| 𝙾𝚆𝙽𝙴𝚁 : 𝙷𝙾𝙼𝙴𝚁 𝚁𝙴𝙱𝙰𝚃𝙸𝚂 |•`, event.threadID, event.messageID);
     
   } catch {
     api.sendMessage('An error occurred while processing your request.', event.threadID, event.messageID);
