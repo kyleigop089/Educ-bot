@@ -43,7 +43,7 @@ module.exports.run = async ({ api, event }) => {
 		};
 
 		const timeStart = Date.now();
-		const returnResult = `✧✧🎀 𝗚𝗖𝗛𝗔𝗧 𝗕𝗢𝗧 🎀✧✧\n━━━━━━━━━━━━━━━━━━━\n🟢 Hello Master! GeoDevz69, I am still alive of about \n👉 ${hours} hour(s) \n👉 ${minutes} minute(s) \n👉 ${seconds} second(s).\n\n✧ CPU Usage: ${usage.cpu.toFixed(1)}%\n✧ RAM Usage: ${byte2mb(usage.memory)}\n✧ Cores: ${os.cpus().length}\n✧ Ping: ${Date.now() - timeStart}ms\n✧ Operating System Platform: ${osInfo.platform}\n✧ System CPU Architecture: ${osInfo.architecture}\n━━━━━━━━━━━━━━━━━━━\n💕 ғʀᴏᴍ: ᴀᴅᴍɪɴ ɢᴇᴏʀᴀʏ 💕`;
+		const returnResult = `•| 𝐁𝐎𝐆𝐀𝐑𝐓 𝐂𝐇𝐀𝐓𝐁𝐎𝐓 |•\n\n🟢 Bogart Ai Bot still running in \n👉 ${hours} hour(s) \n👉 ${minutes} minute(s) \n👉 ${seconds} second(s).\n\n✧ CPU Usage: ${usage.cpu.toFixed(1)}%\n✧ RAM Usage: ${byte2mb(usage.memory)}\n✧ Cores: ${os.cpus().length}\n✧ Ping: ${Date.now() - timeStart}ms\n✧ Operating System Platform: ${osInfo.platform}\n✧ System CPU Architecture: ${osInfo.architecture}\n\n💕 ғʀᴏᴍ: ᴀᴅᴍɪɴ ɢᴇᴏʀᴀʏ 💕`;
 
 		return api.sendMessage(returnResult, event.threadID, event.messageID);
 };
