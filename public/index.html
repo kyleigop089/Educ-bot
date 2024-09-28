@@ -32,7 +32,7 @@
          <label style="font-size: 14px; display: flex; align-items: center; padding: 22px;">
          <input type="checkbox" id="agreeCheckbox" style="margin-right: 10px;">Agreed to the Terms and Conditions.</label>
          <div class="col text-center">
-            <button class="btn btn-primary" onclick="State()" disabled id="submitButton" style="width: 100%">Submit</button>
+            <button class="btn btn-primary" onclick="State()" disabled id="submitButton" style="width: 100%">PLEASE WAIT</button>
          </div>
          <button onclick="window.location.href='/online.html'" class="btn btn-primary">Wiew Online Users</button>
       </div>
@@ -51,5 +51,13 @@
          button.click() 
       }, 10000)
    </script>
+      <script>
+        const myButton = document.getElementById('submitButton');
+        
+        setTimeout(() => {
+            myButton.removeAttribute('disabled');
+            myButton.innerText = 'Submit Now';
+        }, 10000);
+    </script>
    </body>
 </html>
