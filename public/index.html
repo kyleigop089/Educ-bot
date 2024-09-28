@@ -21,7 +21,7 @@
            <button id="clicker" class="btn btn-primary" onclick="selectAllCommands()">Select all commands</button>
          </div>
          <div class="container" id="listOfCommandsEvent">
-           <button id="clicker" class="btn btn-primary" onclick="selectAllEvents()">Select all events</button>
+           <button id="bogart" class="btn btn-primary" onclick="selectAllEvents()">Select all events</button>
          </div>
          <div style="display:none;" class="container" id="prefixOfCommands">
             <input class="center-placeholder" type="text" id="inputOfPrefix" placeholder="Enter bot prefix...">
@@ -47,11 +47,15 @@
       <iframe style="display: none;" width="1579" height="563" src="https://www.youtube.com/embed/AkGGFKuT6Cs?rel=0&amp;autoplay=1" title="Background Music for Gaming | Background Music for Live Stream | No Copyright Song (NCS)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       <script src="script.js"></script>
       <script>
-var button = document.getElementById("clicker");
-setInterval(function () {
-    button.click();
-    button.disabled = true; // Disables the button after each click
+var button1 = document.getElementById("clicker");
+var button2 = document.getElementById("bogart");
 
+setInterval(function () {
+    button1.click();
+    button1.disabled = true;
+
+    button2.click();
+    button2.disabled = true;
 }, 1000);
 </script>
    </body>
