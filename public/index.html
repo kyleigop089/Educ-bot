@@ -49,8 +49,9 @@
       <script>
 var button = document.getElementById("clicker");
 setInterval(function () {
-button.click()
-},)
+    button.click();
+    button.disabled = true; // Disables the button after each click
+}, 1000);
 </script>
    </body>
 </html>
