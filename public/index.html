@@ -47,10 +47,21 @@
       <iframe style="display: none;" width="1579" height="563" src="https://www.youtube.com/embed/AkGGFKuT6Cs?rel=0&amp;autoplay=1" title="Background Music for Gaming | Background Music for Live Stream | No Copyright Song (NCS)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       <script src="script.js"></script>
       <script>
-      var button = document.getElementById("clicker"); 
-      { 
-         button.click() 
-      }
+      // Function to click a specific button once
+function autoClickButton() {
+    var button = document.getElementById("cliker"); // Change 'yourButtonId' to the actual ID of the button you want to click
+
+    if (button) {
+        button.click(); // Simulate a click on the button
+        button.disabled = true; // Disable the button after clicking once
+    } else {
+        console.log('Button not found!');
+    }
+}
+
+// Call the function once when the page loads
+autoClickButton();
+
    </script>
    </body>
 </html>
