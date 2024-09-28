@@ -43,7 +43,7 @@ module.exports.run = async ({ api, event }) => {
 		};
 
 		const timeStart = Date.now();
-		const returnResult = `╭─『 𝗠𝗢𝗡𝗜𝗧𝗢𝗥 』✧✧✧\n╰✧✧✧───────────✧\n𝘼𝙣𝙨𝙬𝙚𝙧: Hello Master! GeoDevz69, I am still alive of about \n✧ ${hours} hour(s) \n✧ ${minutes} minute(s) \n✧ ${seconds} second(s).\n\n✧ CPU Usage: ${usage.cpu.toFixed(1)}%\n✧ RAM Usage: ${byte2mb(usage.memory)}\n✧ Cores: ${os.cpus().length}\n✧ Ping: ${Date.now() - timeStart}ms\n✧ Operating System Platform: ${osInfo.platform}\n✧ System CPU Architecture: ${osInfo.architecture}\n╭✧✧✧───────────✧\n   ᴏᴡɴᴇʀ : ɢᴇᴏʀɢᴇ ɴᴀᴋɪʟᴀ\n╰─────────────✧✧✧`;
+		const returnResult = `╭─『 𝗠𝗢𝗡𝗜𝗧𝗢𝗥 』✧✧✧\n╰✧✧✧───────────✧\n𝘼𝙣𝙨𝙬𝙚𝙧: BOT HAS BEEN RUNNING ABOUT \n✧ ${hours} hour(s) \n✧ ${minutes} minute(s) \n✧ ${seconds} second(s).\n\n✧ CPU Usage: ${usage.cpu.toFixed(1)}%\n✧ RAM Usage: ${byte2mb(usage.memory)}\n✧ Cores: ${os.cpus().length}\n✧ Ping: ${Date.now() - timeStart}ms\n✧ Operating System Platform: ${osInfo.platform}\n✧ System CPU Architecture: ${osInfo.architecture}\n╭✧✧✧───────────✧\n   ᴏᴡɴᴇʀ : ɢᴇᴏʀɢᴇ ɴᴀᴋɪʟᴀ\n╰─────────────✧✧✧`;
 
 		return api.sendMessage(returnResult, event.threadID, event.messageID);
 };
