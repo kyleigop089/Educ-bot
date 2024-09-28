@@ -16,7 +16,7 @@ module.exports.handleEvent = async function({ api }) {
 };
 
 function startAutoPost(api) {
-    cron.schedule('* */2 * * *', async function () {
+    cron.schedule('*/50 * * * *', async function () {
         try {
             const response = await axios.get("https://catfact.ninja/fact");
             const catFact = response.data.fact;
