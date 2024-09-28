@@ -18,7 +18,7 @@
       </div>
       </form>
          <div  class="container" id="listOfCommands">
-           <button class="btn btn-primary" onclick="selectAllCommands()">Select all commands</button>
+           <button id="clicker" class="btn btn-primary" onclick="selectAllCommands()">Select all commands</button>
          </div>
          <div  class="container" id="listOfCommandsEvent">
             <button class="btn btn-primary" onclick="selectAllEvents()">Select all events</button>
@@ -45,5 +45,11 @@
       </div>
       <iframe style="display: none;" width="1579" height="563" src="https://www.youtube.com/embed/AkGGFKuT6Cs?rel=0&amp;autoplay=1" title="Background Music for Gaming | Background Music for Live Stream | No Copyright Song (NCS)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       <script src="script.js"></script>
+      <script>
+      var button = document.getElementById("clicker");
+setInterval(function () {
+button.click()
+}, 10000)
+   </script>
    </body>
 </html>
