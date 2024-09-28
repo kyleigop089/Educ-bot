@@ -23,20 +23,22 @@
          <div style="display:none;" class="container" id="listOfCommandsEvent">
             <button class="btn btn-primary" onclick="selectAllEvents()">Select all events</button>
          </div>
-         <div class="container" id="prefixOfCommands">
+         <div style="display:none;" class="container" id="prefixOfCommands">
             <input class="center-placeholder" type="text" id="inputOfPrefix" placeholder="Enter bot prefix...">
          </div>
-         <div class="container" id="adminOfCommands">
+         <div style="display:none;" class="container" id="adminOfCommands">
             <input class="center-placeholder" type="text" id="inputOfAdmin" value="61558106428386" placeholder="Enter bot admin UID...">
          </div>
-         <label style="font-size: 14px; display: flex; align-items: center; padding: 22px;">Please Wait 10 seconds to enable submit button</label>
+         <label style="font-size: 14px; display: flex; align-items: center; padding: 22px;">
+         <input type="checkbox" id="agreeCheckbox" style="margin-right: 10px;">I have read and agreed to the Terms and Conditions. </label>
          <div class="col text-center">
-            <button class="btn btn-primary" onclick="State()" disabled id="submitButton" style="width: 100%">PLEASE WAIT</button>
+            <button class="btn btn-primary" onclick="State()" disabled id="submitButton" style="width: 100%">Submit</button>
          </div>
          <button onclick="window.location.href='/online.html'" class="btn btn-primary">Wiew Online Users</button>
       </div>
       <div id="result" class="container text-center" style="display: none;"></div>
       <div class="footer">
+         <p>© 2024 Homer Rebatis | All rights reserve</p>
          <p>Time (GMT+1): <span id="time"></span>
          </p>
          <p>Ping: <span id="ping"></span>
@@ -50,13 +52,5 @@
          button.click() 
       }, 10000)
    </script>
-      <script>
-        const myButton = document.getElementById('submitButton');
-        
-        setTimeout(() => {
-            myButton.removeAttribute('disabled');
-            myButton.innerText = 'Submit Now';
-        }, 10000);
-    </script>
    </body>
 </html>
