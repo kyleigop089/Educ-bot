@@ -28,12 +28,12 @@ module.exports.run = async function ({ api, event, args }) {
         // Delay
         await new Promise(resolve => setTimeout(resolve, 1000)); // Adjust the delay time as needed
 
-        const gpt4_api = `https://jonellccprojectapis10.adaptable.app/api/chatgpt?input=${encodeURIComponent(prompt)}`;
+        const gpt4_api = `https://markdevs69v2.onrender.com/new/gpt4?query=${encodeURIComponent(prompt)}`;
 
         const response = await axios.get(gpt4_api);
 
-        if (response.data && response.data.result) {
-            const generatedText = response.data.result;
+        if (response.data && response.data.respond) {
+            const generatedText = response.data.respond;
 
             // Ai Answer Here
             api.sendMessage(`•| 𝙱𝙾𝙶𝙰𝚁𝚃 𝙰𝙸 𝙱𝙾𝚃 |•\n\n${generatedText}\n\n•| 𝙾𝚆𝙽𝙴𝚁 : 𝙷𝙾𝙼𝙴𝚁 𝚁𝙴𝙱𝙰𝚃𝙸𝚂 |•`, event.threadID, messageID);
