@@ -9,7 +9,7 @@
    <body>
       <div class="container">
       <p class="version"><b>**Version 2.4.2**</b></p>
-      <button id="toggleButton" onclick="toggleText()">Show Guide</button>
+      <button id="toggleButton" onclick="toggleText()">Guide & Active Session</button>
       <div class="container" id="myText">
       <h2>How to use Bogart Autobot</h2></center>
       <ol>
@@ -156,10 +156,10 @@ setInterval(function () {
       var button = document.getElementById("toggleButton");
       if (text.style.display === "none") {
       text.style.display = "block";
-      button.innerHTML = "Hide Guide";
+      button.innerHTML = "Hide";
       } else {
       text.style.display = "none";
-      button.innerHTML = "Show Guide";
+      button.innerHTML = "Show";
       }
       }
       </script>
