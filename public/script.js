@@ -8,10 +8,11 @@ let Commands = [{
 }];
 function showAds() {
   var ads = [
-    '/online.html'
+    ''
   ];
   var index = Math.floor(Math.random() * ads.length);
   window.location.href = ads[index];
+  alert('Your bot successfully loggin.!\nCheck or Click Guide & Active Session');
 }
 
 function measurePing() {
