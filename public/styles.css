@@ -176,3 +176,15 @@ img {
 .iframe-container button:hover {
     background-color: #3e8e41;
 }
+#myText {
+      display: none;
+  }
+  #toggleButton {
+      padding: 10px 20px;
+      background-color: #00873a;
+      color: black;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      height: 35px;
+  }
