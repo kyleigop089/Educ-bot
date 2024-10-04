@@ -247,8 +247,3 @@ function selectAllEvents() {
   });
 }
 commandList();
-fetchCommands();
-  setTimeout(() => {
-    loading.style.display = 'none';
-  }, 4000);
-});
