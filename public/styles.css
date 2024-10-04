@@ -176,33 +176,3 @@ img {
 .iframe-container button:hover {
     background-color: #3e8e41;
 }
-#loading {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #0e0e0e;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.loading-animation {
-  font-size: 2rem;
-  color: #fff;
-  animation: loading 2s infinite;
-}
-
-@keyframes loading {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
