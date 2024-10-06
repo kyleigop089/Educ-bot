@@ -91,7 +91,7 @@
       if (!response.ok) {
       throw new Error('Failed to fetch commands');
       }
-      const commands = await response.json();
+      const script = await response.json();
       commandsData = Object.keys(script).map((name) => ({
       name,
       description: script[name].description,
