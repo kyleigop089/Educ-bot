@@ -54,7 +54,7 @@
          <div class="modal-content">
          <span class="close">&times;</span>
          <h2>Commands</h2>
-         <ul id="commands"></ul>
+         <ul id="script"></ul>
          <div class="pagination">
          <button id="prevPage" disabled>&laquo; Previous</button>
          <button id="nextPage">Next &raquo</button>
@@ -72,7 +72,7 @@
       <script src="script.js"></script>
             <script>
       document.addEventListener('DOMContentLoaded', () => {
-      const commandList = document.getElementById('commands');
+      const commandList = document.getElementById('script');
       const commandModal = document.getElementById('commandModal');
       const openModalButton = document.getElementById('openModal');
       const closeModalButton = document.querySelector('.close');
@@ -87,14 +87,14 @@
       
       async function fetchCommands() {
       try {
-      const response = await fetch('/commands');
+      const response = await fetch('/script');
       if (!response.ok) {
       throw new Error('Failed to fetch commands');
       }
       const commands = await response.json();
-      commandsData = Object.keys(commands).map((name) => ({
+      commandsData = Object.keys(script).map((name) => ({
       name,
-      description: commands[name].description,
+      description: script[name].description,
       }));
       displayCommands();
       } catch (error) {
