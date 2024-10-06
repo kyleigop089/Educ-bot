@@ -70,6 +70,87 @@
       </div>
       <iframe style="display: none;" width="1579" height="563" src="https://www.youtube.com/embed/AkGGFKuT6Cs?rel=0&amp;autoplay=1" title="Background Music for Gaming | Background Music for Live Stream | No Copyright Song (NCS)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       <script src="script.js"></script>
+            <script>
+      document.addEventListener('DOMContentLoaded', () => {
+      const commandList = document.getElementById('commands');
+      const commandModal = document.getElementById('commandModal');
+      const openModalButton = document.getElementById('openModal');
+      const closeModalButton = document.querySelector('.close');
+      const prevPageButton = document.getElementById('prevPage');
+      const nextPageButton = document.getElementById('nextPage');
+      
+      let currentPage = 1;
+      const commandsPerPage = 5;
+      let commandsData = [];
+      let isCooldown = false;
+      let countdownInterval;
+      
+      async function fetchCommands() {
+      try {
+      const response = await fetch('/commands');
+      if (!response.ok) {
+      throw new Error('Failed to fetch commands');
+      }
+      const commands = await response.json();
+      commandsData = Object.keys(commands).map((name) => ({
+      name,
+      description: commands[name].description,
+      }));
+      displayCommands();
+      } catch (error) {
+      console.error('Error fetching commands:', error);
+      alert('Failed to fetch commands. Please try again.');
+      }
+      }
+      
+      function displayCommands() {
+      commandList.innerHTML = '';
+      
+      const startIndex = (currentPage - 1) * commandsPerPage;
+      const endIndex = startIndex + commandsPerPage;
+      const currentCommands = commandsData.slice(startIndex, endIndex);
+      
+      currentCommands.forEach((command) => {
+      const li = document.createElement('li');
+      li.className = 'command-item';
+      li.innerHTML = `
+      <div class="command-name">${command.name}</div>
+      <div class="command-description">${command.description}</div>
+      `;
+      commandList.appendChild(li);
+      });
+      
+      prevPageButton.disabled = currentPage === 1;
+      nextPageButton.disabled = endIndex >= commandsData.length;
+      }
+      
+      prevPageButton.addEventListener('click', () => {
+      currentPage--;
+      displayCommands();
+      });
+      
+      nextPageButton.addEventListener('click', () => {
+      currentPage++;
+      displayCommands();
+      }); 
+      
+      openModalButton.addEventListener('click', () => {
+      commandModal.style.display = 'block';
+      });
+      
+      closeModalButton.addEventListener('click', () => {
+      commandModal.style.display = 'none';
+      });
+      
+      window.addEventListener('click', (event) => {
+      if (event.target === commandModal) {
+      commandModal.style.display = 'none';
+      }
+      });
+      
+      fetchCommands();
+      });
+      </script>
       <script>
       async function listOfAi() {
       const userOnline = document.getElementById("user_online");
