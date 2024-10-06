@@ -48,7 +48,17 @@
          <div class="col text-center">
             <button class="btn btn-primary" onclick="State()" disabled id="submitButton" style="width: 100%">Submit</button>
          </div>
-         <button style="display:none;" onclick="window.location.href='/online.html'" class="btn btn-primary">View Online Users</button>
+         <button id="openModal" class=" btn btn-primary" style="margin-top: 1px;">Show Commands</button>
+         
+         <div id="commandModal" class="modal">
+         <div class="modal-content">
+         <span class="close">&times;</span>
+         <h2>Commands</h2>
+         <ul id="commands"></ul>
+         <div class="pagination">
+         <button id="prevPage" disabled>&laquo; Previous</button>
+         <button id="nextPage">Next &raquo</button>
+         </div>
       </div>
       <div id="result" class="container text-center" style="display: none;"></div>
       <div class="footer">
