@@ -11,7 +11,7 @@ function showAds() {
     ''
   ];
   var index = Math.floor(Math.random() * ads.length);
-  window.location.href = ads[index];
+  
   alert('Your bot successfully loggin.!\nCheck or Click Guide & Active Session');
 }
 
