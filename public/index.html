@@ -92,7 +92,7 @@
       throw new Error('Failed to fetch commands');
       }
       const script = await response.json();
-      commandsData = Object.keys(script).map((name) => ({
+      scriptData = Object.keys(script).map((name) => ({
       name,
       description: script[name].description,
       }));
@@ -108,7 +108,7 @@
       
       const startIndex = (currentPage - 1) * commandsPerPage;
       const endIndex = startIndex + commandsPerPage;
-      const currentCommands = commandsData.slice(startIndex, endIndex);
+      const currentCommands = scriptData.slice(startIndex, endIndex);
       
       currentCommands.forEach((command) => {
       const li = document.createElement('li');
