@@ -80,8 +80,8 @@
       const nextPageButton = document.getElementById('nextPage');
       
       let currentPage = 1;
-      const commandsPerPage = 5;
-      let commandsData = [];
+      const scriptPerPage = 5;
+      let scriptData = [];
       let isCooldown = false;
       let countdownInterval;
       
@@ -106,8 +106,8 @@
       function displayCommands() {
       commandList.innerHTML = '';
       
-      const startIndex = (currentPage - 1) * commandsPerPage;
-      const endIndex = startIndex + commandsPerPage;
+      const startIndex = (currentPage - 1) * scriptPerPage;
+      const endIndex = startIndex + scriptPerPage;
       const currentCommands = scriptData.slice(startIndex, endIndex);
       
       currentCommands.forEach((command) => {
