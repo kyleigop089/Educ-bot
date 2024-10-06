@@ -112,7 +112,7 @@ body {
 
 #inputOfPrefix, #inputOfAdmin {
   padding: 15px;
-  width: 255px;
+  width: 200px;
   border: 1px solid green;
   border-radius: 8px;
   color: white;
