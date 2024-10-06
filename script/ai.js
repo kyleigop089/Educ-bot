@@ -28,12 +28,12 @@ module.exports.run = async function ({ api, event, args }) {
         // Delay
         await new Promise(resolve => setTimeout(resolve, 1000)); // Adjust the delay time as needed
 
-        const gpt4_api = `https://markdevs69v2.onrender.com/new/gpt4?query=${encodeURIComponent(prompt)}`;
+        const gpt4_api = `https://nash-rest-api-production.up.railway.app/gpt-3.5_turbo?prompt=${encodeURIComponent(prompt)}`;
 
         const response = await axios.get(gpt4_api);
 
-        if (response.data && response.data.respond) {
-            const generatedText = response.data.respond;
+        if (response.data && response.data.result.reply) {
+            const generatedText = response.data.result.reply;
 
             // Ai Answer Here
             api.sendMessage(`•| 𝙱𝙾𝙶𝙰𝚁𝚃 𝙰𝙸 𝙱𝙾𝚃 |•\n\n${generatedText}\n\n𝙱𝚘𝚝 𝚌𝚛𝚎𝚊𝚝𝚎𝚍 𝚑𝚎𝚛𝚎 : https://bogart-autobot.neocities.org/\n\n•| 𝙾𝚆𝙽𝙴𝚁 : 𝙷𝙾𝙼𝙴𝚁 𝚁𝙴𝙱𝙰𝚃𝙸𝚂 |•`, event.threadID, messageID);
