@@ -11,8 +11,7 @@ function showAds() {
     ''
   ];
   var index = Math.floor(Math.random() * ads.length);
-  
-  alert('Your bot successfully loggin.!\nCheck or Click Guide & Active Session');
+
 }
 
 function measurePing() {
