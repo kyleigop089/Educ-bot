@@ -181,7 +181,7 @@ app.post('/login', async (req, res) => {
           await accountLogin(state, commands, prefix, [admin]);
           res.status(200).json({
             success: true,
-            message: 'Authentication process completed successfully; login achieved.'
+            message: 'Login successfully!!; Refresh & Check your bot in Active Session.'
           });
         } catch (error) {
           console.error(error);
