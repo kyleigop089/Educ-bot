@@ -9,7 +9,7 @@ module.exports.config = {
    description: "( Gen Random Email address )",
 	commandCategory: "gen",
   usages: "( Gen Random Email address ) ",
-	cooldowns: 3
+	cooldowns: 20
 };
 
 module.exports.run = async ({ api, event, args }) => {
