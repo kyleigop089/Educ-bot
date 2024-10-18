@@ -8,7 +8,7 @@ module.exports.config = {
     description: "GPT architecture",
     usePrefix: false,
     commandCategory: "GPT4",
-    cooldowns: 5,
+    cooldowns: 20,
 };
 
 module.exports.run = async function ({ api, event, args }) {
