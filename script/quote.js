@@ -7,7 +7,7 @@ module.exports.config = {
   description: "Get a random inspirational quote.",
   usage: "quote",
   credits: "Developer",
-  cooldown: 0
+  cooldown: 20
 };
 module.exports.run = async ({
   api,
