@@ -8,7 +8,7 @@ module.exports.config = {
 		credits: "GeoDevz69",
 		description: "uptime",
 		hasPrefix: true,
-		cooldowns: 5,
+		cooldowns: 20,
 		aliases: ["monitor"]
 };
 
