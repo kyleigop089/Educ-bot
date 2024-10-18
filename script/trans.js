@@ -6,7 +6,7 @@ module.exports.config = {
   description: "Text translation",
   usages: "trans [tl, en] [promt]",
   credits: "Developer",
-  cooldowns: 5,
+  cooldowns: 20,
 };
 module.exports.run = async ({
   api,
