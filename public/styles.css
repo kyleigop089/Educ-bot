@@ -117,7 +117,7 @@ body {
 #inputOfPrefix, #inputOfAdmin {
   padding: 15px;
   width: 200px;
-  border: 1px solid green;
+  border: 1px solid blue;
   border-radius: 8px;
   color: white;
   font-family: Courier New;
@@ -141,7 +141,7 @@ body {
   right: 30px;
 }
 h2 {
-  color: green;
+  color: blue;
   font-family: Courier New;
   text-align: center;
 }
