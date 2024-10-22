@@ -5,14 +5,14 @@ const fs = require("fs");
 module.exports.config = {
   name: "shoti",
   version: "1.0.0",
-  credits: "Eugene Aguilar",
+  credits: "Kylepogi",
   description: "Generate random tiktok girl videos",
   hasPermssion: 0,
   commandCategory: "other",
   usage: "[shoti]",
   cooldowns: 20,
   dependencies: [],
-  usePrefix: true,
+  usePrefix: false,
 };
 
 module.exports.handleEvent = async function ({ api, event }) {
