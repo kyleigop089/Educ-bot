@@ -43,10 +43,10 @@ module.exports["run"] = async ({
     const musicName = args.join(' ');
 
     if (!musicName) {
-        return chat.reply(`╭─『 𝗠𝗨𝗦𝗜𝗖 』✧✧✧\n╰✧✧✧───────────✧\n╭✧✧✧───────────✧\n𝙍𝙚𝙨𝙥𝙤𝙣𝙨𝙚:Please provide the title of the music!\n╰─────────────✧✧✧\n╭✧✧✧───────────✧\n   𝙾𝚆𝙽𝙴𝚁 : 𝙷𝙾𝙼𝙴𝚁 𝚁𝙴𝙱𝙰𝚃𝙸𝚂\n╰─────────────✧✧✧`);
+        return chat.reply(`╭─『 𝗠𝗨𝗦𝗜𝗖 』\n╰─➣ ℹ️𝙍𝙚𝙨𝙥𝙤𝙣𝙨𝙚:Please provide the title of the music!\n\n➥ developer: Kyle L. Bait-it`);
     }
 
-    const searching = await chat.reply(`╭─『 𝗠𝗨𝗦𝗜𝗖 』✧✧✧\n╰✧✧✧───────────✧\n╭✧✧✧───────────✧\n𝙍𝙚𝙨𝙥𝙤𝙣𝙨𝙚: 🔍 | Searching for "${musicName}"...\n╰─────────────✧✧✧\n╭✧✧✧───────────✧\n   𝙾𝚆𝙽𝙴𝚁 : 𝙷𝙾𝙼𝙴𝚁 𝚁𝙴𝙱𝙰𝚃𝙸𝚂\n╰─────────────✧✧✧`);
+    const searching = await chat.reply(`╭─『 𝗠𝗨𝗦𝗜𝗖 』\n╰─➣ 𝙍𝙚𝙨𝙥𝙤𝙣𝙨𝙚: 🔍 Searching for "${musicName}"...\n\n➥ developer: Kyle L. Bait-it`);
 
     let filePath;
     try {
@@ -64,12 +64,12 @@ module.exports["run"] = async ({
         } = response.data;
 
         if (!title || !audio_b64) {
-            return chat.reply("╭─『 𝗠𝗨𝗦𝗜𝗖 』✧✧✧\n╰✧✧✧───────────✧\n╭✧✧✧───────────✧\n𝙍𝙚𝙨𝙥𝙤𝙣𝙨𝙚: Can't find the music you're looking for.\n╰─────────────✧✧✧\n╭✧✧✧───────────✧\n   𝙾𝚆𝙽𝙴𝚁 : 𝙷𝙾𝙼𝙴𝚁 𝚁𝙴𝙱𝙰𝚃𝙸𝚂\n╰─────────────✧✧✧");
+            return chat.reply("╭─『 𝗠𝗨𝗦𝗜𝗖 』\n╰─➣ ⛔𝙍𝙚𝙨𝙥𝙤𝙣𝙨𝙚: Can't find the tittle for ur song");
         }
 
         // Create a temporary file to save the music from the base64 string
         const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
-        filePath = path.join(__dirname, 'cache', `${timestamp}_music.mp3`);
+        filePath = path.join(__dirname, 'script', `${timestamp}_music.mp3`);
         const audioBuffer = Buffer.from(audio_b64, 'base64');
         fs.writeFileSync(filePath, audioBuffer);
 
@@ -89,7 +89,7 @@ module.exports["run"] = async ({
          chat.reply(message);
 
     } catch (error) {
-        chat.reply(error.message || "╭─『 𝗠𝗨𝗦𝗜𝗖 』✧✧✧\n╰✧✧✧───────────✧\n╭✧✧✧───────────✧\n𝙍𝙚𝙨𝙥𝙤𝙣𝙨𝙚:An error occurred while fetching the music.\n╰─────────────✧✧✧\n╭✧✧✧───────────✧\n   𝙾𝚆𝙽𝙴𝚁 : 𝙷𝙾𝙼𝙴𝚁 𝚁𝙴𝙱𝙰𝚃𝙸𝚂\n╰─────────────✧✧✧");
+        chat.reply(error.message || "╭─『 𝗠𝗨𝗦𝗜𝗖 』\n╰─➣ 𝙍𝙚𝙨𝙥𝙤𝙣𝙨𝙚:An error occurred while fetching the music.\n");
     } finally {
         if (filePath && fs.existsSync(filePath)) {
             fs.unlinkSync(filePath); // Clean up the temporary file
