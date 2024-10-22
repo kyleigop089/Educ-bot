@@ -60,6 +60,6 @@ const title = response.data.data.title || "undefined";
     }
   };
 module.exports.run = async function ({ api, event }) {
-   api.sendMessage(`This command doesn't need a prefix`, event.threadID, event.messageID);
+   api.sendMessage(`sending shoti😍`, event.threadID, event.messageID);
 
 };
