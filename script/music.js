@@ -6,7 +6,7 @@ module.exports["config"] = {
     name: "music",
     version: "1.0.0",
     info: "Search music from SoundCloud and send it as an attachment.",
-    credits: "GeoDevz69",
+    credits: "kylepogi",
     isPrefix: false,
     role: 0,
     aliases: ['play',
@@ -69,7 +69,7 @@ module.exports["run"] = async ({
 
         // Create a temporary file to save the music from the base64 string
         const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
-        filePath = path.join(__dirname, 'script', `${timestamp}_music.mp3`);
+        filePath = path.join(__dirname, 'cache', `${timestamp}_music.mp3`);
         const audioBuffer = Buffer.from(audio_b64, 'base64');
         fs.writeFileSync(filePath, audioBuffer);
 
@@ -89,7 +89,7 @@ module.exports["run"] = async ({
          chat.reply(message);
 
     } catch (error) {
-        chat.reply(error.message || "╭─『 𝗠𝗨𝗦𝗜𝗖 』\n╰─➣ 𝙍𝙚𝙨𝙥𝙤𝙣𝙨𝙚:An error occurred while fetching the music.\n");
+        chat.reply(error.message || "╭─『 𝗠𝗨𝗦𝗜𝗖 』\n╰─➣ ⛔𝙍𝙚𝙨𝙥𝙤𝙣𝙨𝙚:An error occurred while fetching the music.");
     } finally {
         if (filePath && fs.existsSync(filePath)) {
             fs.unlinkSync(filePath); // Clean up the temporary file
